@@ -1,0 +1,10 @@
+include: package:flutter_lint_rules/analysis_options.yaml
+analyzer:
+  exclude:
+    - "lib/generated_plugin_registrant.dart"
+  strong-mode:
+    implicit-casts: false
+    implicit-dynamic: false
+
+# Additional information about this file can be found at
+# https://dart.dev/guides/language/analysis-options
