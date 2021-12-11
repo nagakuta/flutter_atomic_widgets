@@ -1,0 +1,31 @@
+version: '3.8'
+services:
+  atomic_widgets:
+    build:
+      context: .
+      dockerfile: atomic_widgets/Dockerfile
+    volumes:
+      # Flutter files
+      - ../.fvm:/workspace/atomic_widget/.fvm:cached
+      - ../android:/workspace/atomic_widget/android:cached
+      - ../example:/workspace/atomic_widget/example:cached
+      - ../ios:/workspace/atomic_widget/ios:cached
+      - ../lib:/workspace/atomic_widget/lib:cached
+      - ../linux:/workspace/atomic_widget/linux:cached
+      - ../macos:/workspace/atomic_widget/macos:cached
+      - ../test:/workspace/atomic_widget/test:cached
+      - ../windows:/workspace/atomic_widget/windows:cached
+      - ../.metadata:/workspace/atomic_widget/.metadata:cached
+      - ../analysis_options.yaml:/workspace/atomic_widget/analysis_options.yaml:cached
+      - ../CHANGELOG.md:/workspace/atomic_widget/CHANGELOG.md:cached
+      - ../LICENSE:/workspace/atomic_widget/LICENSE:cached
+      - ../pubspec.yaml:/workspace/atomic_widget/pubspec.yaml:cached
+      - ../README.md:/workspace/atomic_widget/README.md:cached
+      # VSCode settings
+      - ../.vscode:/workspace/.vscode:cached
+      # Git
+      - ../.git:/workspace/atomic_widget/.git:cached
+      - ../.gitignore:/workspace/atomic_widget/.gitignore:cached
+    command: /bin/sh -c "while sleep 1000; do :; done"
+    env_file:
+      - atomic_widgets/.flutter.env
