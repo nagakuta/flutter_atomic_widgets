@@ -4,8 +4,8 @@ import 'package:flutter/widgets.dart';
 abstract class TemplateWidget extends StatelessWidget {
   // ignore: public_member_api_docs
   const TemplateWidget({
-    final Key? key,
-  }) : super(key: key);
+    final super.key,
+  });
 
   /// Build a template widget.
   Widget buildTemplate(final BuildContext context);
