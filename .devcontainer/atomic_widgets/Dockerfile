@@ -1,5 +1,5 @@
 # Base image
-FROM dart:2.16-sdk
+FROM dart:2.17-sdk
 
 # Maintainer
 LABEL maintainer="nagakuta <nagakuta0314+github@gmail.com>"
@@ -9,7 +9,7 @@ WORKDIR /workspace/atomic_widget
 
 # Install Flutter
 ARG PATH=/root/.pub-cache/bin:$PATH
-ARG FLUTTER_VERSION=2.10.5
+ARG FLUTTER_VERSION=3.0.1
 RUN dart pub global activate fvm --verbose && \
     fvm doctor --verbose && \
     fvm install $FLUTTER_VERSION --verbose && \
