@@ -4,12 +4,11 @@ import 'package:flutter/cupertino.dart';
 abstract class AtomWidget extends StatelessWidget {
   // ignore: public_member_api_docs
   const AtomWidget({
-    final Key? key,
+    final super.key,
     final EdgeInsetsGeometry? padding,
     final EdgeInsetsGeometry? margin,
   })  : _padding = padding,
-        _margin = margin,
-        super(key: key);
+        _margin = margin;
 
   final EdgeInsetsGeometry? _padding;
   final EdgeInsetsGeometry? _margin;

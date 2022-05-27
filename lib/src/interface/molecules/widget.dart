@@ -4,12 +4,11 @@ import 'package:flutter/widgets.dart';
 abstract class MoleculeWidget extends StatelessWidget {
   // ignore: public_member_api_docs
   const MoleculeWidget({
-    final Key? key,
+    final super.key,
     final EdgeInsetsGeometry? padding,
     final EdgeInsetsGeometry? margin,
   })  : _padding = padding,
-        _margin = margin,
-        super(key: key);
+        _margin = margin;
 
   final EdgeInsetsGeometry? _padding;
   final EdgeInsetsGeometry? _margin;
