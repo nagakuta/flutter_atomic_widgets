@@ -16,6 +16,7 @@ services:
       - ../test:/workspace/atomic_widget/test:cached
       - ../windows:/workspace/atomic_widget/windows:cached
       - ../.metadata:/workspace/atomic_widget/.metadata:cached
+      - ../all_lint_rules.yaml:/workspace/atomic_widget/all_lint_rules.yaml:cached
       - ../analysis_options.yaml:/workspace/atomic_widget/analysis_options.yaml:cached
       - ../CHANGELOG.md:/workspace/atomic_widget/CHANGELOG.md:cached
       - ../LICENSE:/workspace/atomic_widget/LICENSE:cached
