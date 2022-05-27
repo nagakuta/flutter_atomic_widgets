@@ -1,4 +1,4 @@
-#include "include/atomic_widget/atomic_widget_plugin.h"
+#include "atomic_widget_plugin.h"
 
 // This must be included before many other Windows headers.
 #include <windows.h>
@@ -10,26 +10,10 @@
 #include <flutter/plugin_registrar_windows.h>
 #include <flutter/standard_method_codec.h>
 
-#include <map>
 #include <memory>
 #include <sstream>
 
-namespace {
-
-class AtomicWidgetPlugin : public flutter::Plugin {
- public:
-  static void RegisterWithRegistrar(flutter::PluginRegistrarWindows *registrar);
-
-  AtomicWidgetPlugin();
-
-  virtual ~AtomicWidgetPlugin();
-
- private:
-  // Called when a method is called on this plugin's channel from Dart.
-  void HandleMethodCall(
-      const flutter::MethodCall<flutter::EncodableValue> &method_call,
-      std::unique_ptr<flutter::MethodResult<flutter::EncodableValue>> result);
-};
+namespace atomic_widget {
 
 // static
 void AtomicWidgetPlugin::RegisterWithRegistrar(
@@ -72,11 +56,4 @@ void AtomicWidgetPlugin::HandleMethodCall(
   }
 }
 
-}  // namespace
-
-void AtomicWidgetPluginRegisterWithRegistrar(
-    FlutterDesktopPluginRegistrarRef registrar) {
-  AtomicWidgetPlugin::RegisterWithRegistrar(
-      flutter::PluginRegistrarManager::GetInstance()
-          ->GetRegistrar<flutter::PluginRegistrarWindows>(registrar));
-}
+}  // namespace atomic_widget

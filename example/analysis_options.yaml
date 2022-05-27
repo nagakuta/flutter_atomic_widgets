@@ -7,13 +7,15 @@
 
 # The following line activates a set of recommended lints for Flutter apps,
 # packages, and plugins designed to encourage good coding practices.
-include: package:flutter_lint_rules/analysis_options.yaml
+include: ../all_lint_rules.yaml
 analyzer:
   exclude:
     - "lib/generated_plugin_registrant.dart"
   strong-mode:
     implicit-casts: false
     implicit-dynamic: false
+  errors:
+    included_file_warning: ignore
 
 linter:
   # The lint rules applied to this project can be customized in the

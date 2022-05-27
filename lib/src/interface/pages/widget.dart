@@ -7,8 +7,8 @@ import '/src/interface/templates/widget.dart';
 abstract class PageWidget extends StatelessWidget {
   // ignore: public_member_api_docs
   const PageWidget({
-    final Key? key,
-  }) : super(key: key);
+    final super.key,
+  });
 
   /// Build a scaffold body.
   TemplateWidget buildBody(final BuildContext context);
