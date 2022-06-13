@@ -1,7 +1,10 @@
 import 'package:flutter/widgets.dart';
 
+import '/src/interface/adaptive_view/types.dart';
+import '/src/interface/adaptive_view/widget.dart';
+
 /// Template Widget
-abstract class TemplateWidget extends StatelessWidget {
+abstract class TemplateWidget extends AdaptiveWidget {
   // ignore: public_member_api_docs
   const TemplateWidget({
     final super.key,
@@ -15,6 +18,47 @@ abstract class TemplateWidget extends StatelessWidget {
       SafeArea(child: child);
 
   @override
-  Widget build(final BuildContext context) =>
-      buildSafeArea(context, buildTemplate(context));
+  Widget build(final BuildContext context) => buildSafeArea(
+        context,
+        LayoutBuilder(
+          builder: (
+            final BuildContext context,
+            final BoxConstraints constraints,
+          ) =>
+              LayoutType.fromConstraints(constraints).when(
+            smallHandset: () =>
+                buildSmallHandset(context) ?? buildTemplate(context),
+            mediumHandset: () =>
+                buildMediumHandset(context) ??
+                buildSmallHandset(context) ??
+                buildTemplate(context),
+            largeHandset: () =>
+                buildLargeHandset(context) ??
+                buildMediumHandset(context) ??
+                buildSmallHandset(context) ??
+                buildTemplate(context),
+            smallTablet: () =>
+                buildSmallTablet(context) ??
+                buildLargeHandset(context) ??
+                buildMediumHandset(context) ??
+                buildSmallHandset(context) ??
+                buildTemplate(context),
+            largeTablet: () =>
+                buildLargeTablet(context) ??
+                buildSmallTablet(context) ??
+                buildLargeHandset(context) ??
+                buildMediumHandset(context) ??
+                buildSmallHandset(context) ??
+                buildTemplate(context),
+            desktop: () =>
+                buildDesktop(context) ??
+                buildLargeTablet(context) ??
+                buildSmallTablet(context) ??
+                buildLargeHandset(context) ??
+                buildMediumHandset(context) ??
+                buildSmallHandset(context) ??
+                buildTemplate(context),
+          ),
+        ),
+      );
 }
