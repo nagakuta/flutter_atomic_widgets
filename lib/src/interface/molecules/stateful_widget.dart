@@ -1,17 +1,15 @@
 import 'package:flutter/cupertino.dart';
 
+import '/src/interface/wrapper/stateful_widget.dart';
+
 /// Stateful Molecule Widget
-abstract class StatefulMoleculeWidget extends StatefulWidget {
+abstract class StatefulMoleculeWidget extends StatefulWrapper {
   // ignore: public_member_api_docs
   const StatefulMoleculeWidget({
     final super.key,
-    final EdgeInsetsGeometry? padding,
-    final EdgeInsetsGeometry? margin,
-  })  : _margin = margin,
-        _padding = padding;
-
-  final EdgeInsetsGeometry? _padding;
-  final EdgeInsetsGeometry? _margin;
+    final super.padding,
+    final super.margin,
+  });
 
   @override
   MoleculeState<StatefulMoleculeWidget> createState();
@@ -19,17 +17,9 @@ abstract class StatefulMoleculeWidget extends StatefulWidget {
 
 /// Molecule State
 abstract class MoleculeState<T extends StatefulMoleculeWidget>
-    extends State<T> {
+    extends WrapperState<T> {
   /// Build a molecule widget.
   Widget buildMolecule(final BuildContext context);
-
-  /// Build a widget with wrapper.
-  Widget? buildWrapper(final BuildContext context, final Widget child) =>
-      Container(
-        padding: widget._padding,
-        margin: widget._margin,
-        child: child,
-      );
 
   @override
   Widget build(final BuildContext context) {

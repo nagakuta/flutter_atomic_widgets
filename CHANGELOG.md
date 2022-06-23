@@ -9,3 +9,7 @@
 ## 0.3.0
 
 * Implement stateful atomic widgets.
+
+## 0.3.1
+
+* Implement `Wrapper`, and apply it to Atomic widgets.
